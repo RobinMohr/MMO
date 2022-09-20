@@ -8,6 +8,7 @@ namespace MMO
 {
     public class Enemy
     {
+        public bool Enemy_Alive = false;
         public double Enemy_Max_HP { get; set; }
         public double Enemy_Health_Points { get; set; }
         public double Enemy_Damage_Dealt { get; set; }
@@ -23,5 +24,34 @@ namespace MMO
         {
 
         }
+        public void Enemy_Spawning()
+        {
+            Random random = new Random();
+            int x = random.Next(0,7);
+            if (Enemy_Alive == false)
+            {
+                if (x == 0)
+                {
+                    Console.WriteLine("Diese Runde spawnt kein Gegner, du kannst dich ausruhen und dich Heilen.");
+                }
+
+                Enemy_Alive = true;
+
+                if (x == 1)
+                {
+                    Console.WriteLine("Ein Goblin greift dich aus dem Hinterhalt and.");
+                    Enemy_Max_HP = 40;
+                    Enemy_Health_Points = 40;
+                    Enemy_Damage_Dealt = 5;
+
+
+
+                }
+
+
+
+            }
+                        
+        }   
     }
 }
